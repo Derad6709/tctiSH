@@ -32,8 +32,9 @@ jobs:
           nix develop --extra-experimental-features nix-command --extra-experimental-features flakes
 
       - name: Build and copy tctictl utility
+        working-directory: utils/tctictl
         run: |
-          bash utils/tctictl/build_and_copy.sh
+          bash build_and_copy.sh
 
       - name: Build unsigned .xcarchive
         run: |
