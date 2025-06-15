@@ -26,9 +26,10 @@ jobs:
       #     pod install --project-directory=tctiSH
 
       - name: Build native dependencies (Nix)
+        #--command bash build_dependencies.sh
         run: |
           . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-          nix develop --command bash build_dependencies.sh
+          nix develop 
 
       - name: Build and copy tctictl utility
         run: |
