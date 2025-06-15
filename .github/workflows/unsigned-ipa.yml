@@ -11,6 +11,17 @@ jobs:
   build-unsigned-ipa:
     runs-on: macos-latest
     steps:
+      - name: Cache Git submodules
+        uses: actions/cache@v4
+        with:
+          path: |
+            .git/modules
+            qemu-tcti
+            third-party/SwiftTerm
+          key: ${{ runner.os }}-submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            ${{ runner.os }}-submodules-
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
