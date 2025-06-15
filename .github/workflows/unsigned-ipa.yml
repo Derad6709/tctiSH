@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Install Nix
         run: |
@@ -35,6 +37,10 @@ jobs:
         working-directory: utils/tctictl
         run: |
           bash build_and_copy.sh
+
+      - name: Resolve Swift Package Dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies -workspace tctiSH.xcworkspace
 
       - name: Build unsigned .xcarchive
         run: |
