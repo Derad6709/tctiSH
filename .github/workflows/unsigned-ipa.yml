@@ -40,7 +40,8 @@ jobs:
 
       - name: Resolve Swift Package Dependencies
         run: |
-          xcodebuild -resolvePackageDependencies -workspace tctiSH.xcworkspace
+          xcodebuild -resolvePackageDependencies -workspace tctiSH.xcworkspace \
+            -scheme tctiSH
 
       - name: Build unsigned .xcarchive
         run: |
