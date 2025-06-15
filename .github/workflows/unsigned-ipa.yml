@@ -29,7 +29,7 @@ jobs:
         #--command bash build_dependencies.sh
         run: |
           . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-          nix develop 
+          nix develop --extra-experimental-features nix-command
 
       - name: Build and copy tctictl utility
         run: |
