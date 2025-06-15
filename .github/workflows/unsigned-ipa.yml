@@ -20,10 +20,10 @@ jobs:
           . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
           nix --version
 
-      - name: Set up Ruby & CocoaPods
-        run: |
-          sudo gem install cocoapods
-          pod install --project-directory=tctiSH
+      # - name: Set up Ruby & CocoaPods
+      #   run: |
+      #     sudo gem install cocoapods
+      #     pod install --project-directory=tctiSH
 
       - name: Build native dependencies (Nix)
         run: |
